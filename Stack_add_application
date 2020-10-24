@@ -1,0 +1,139 @@
+/*
+Application 4
+PROGRAM TO EVALUATE POSTFIX NOTATIONS
+*/
+
+#include <iostream>
+using namespace std;
+#include "stack_applications.h"
+
+template <class t>
+class Stack
+{
+	public:
+		IntSLLList<t> L;	
+		
+		Stack()
+		{
+			L.head = NULL;
+		}
+		
+		void push(t element)
+		{
+			L.insertatHead(element);
+		}
+		
+		void pop()
+		{
+			L.del();
+		}
+		
+		t top_element()
+		{
+			return L.head->info;
+		}
+		
+		void print()
+		{
+			L.traverse();
+		}
+		
+		
+		bool is_empty()
+		{
+			if(L.head == NULL)
+				return true;
+			else
+				return false;
+		}
+	
+	
+	
+	void evaluate(string exp)
+	{
+		Stack <int> s;
+  		int len = exp.length();
+  
+  		for(int i=0; i<len; i++)
+  		{
+    		if(exp[i] != '+' && exp[i] != '-' && exp[i] != '*' && exp[i] != '/' && exp[i] != '^')
+    		{
+      			exp[i] = (int)exp[i]-'0';
+      			s.push(exp[i]);
+   			}
+    
+    	    else if(exp[i] == '+')
+    		{
+      			int ele1 = s.top_element();
+      			s.pop();
+      			int ele2 = s.top_element();
+      			s.pop();
+      			int element = ele1 + ele2;
+      			s.push(element);
+    		}
+    		
+			else if(exp[i] == '-')
+    		{
+     	 		int ele1 = s.top_element();
+      			s.pop();
+      			int ele2 = s.top_element();
+      			s.pop();
+      			int element = ele2 - ele1;
+      			s.push(element);
+   			}
+    		
+			else if(exp[i] == '*')
+    		{
+      			int ele1 = s.top_element();
+      			s.pop();
+      			int ele2 = s.top_element();
+      			s.pop();
+      			int element = ele1 * ele2;
+      			s.push(element);
+    		}
+    		
+    		else if(exp[i] == '/')
+    		{
+      			int ele1 = s.top_element();
+      			s.pop();
+      			int ele2 = s.top_element();
+      			s.pop();
+      			float element = ele2 / ele1;
+      			s.push(element);
+   		 	}
+						
+    		else if(exp[i] == '^')
+    		{
+      			int ele1 = s.top_element();
+		        s.pop();
+                int ele2 = s.top_element();
+                s.pop();
+                int element = 1;
+                for(int i=0; i<ele1; i++)
+                    element *= ele2;
+                    s.push(element);
+           }
+    
+       }
+  		
+		float res = s.top_element();
+  		cout<<res;
+	}
+	
+};
+
+int main()
+{
+	Stack<int> sk1;
+    string exp;
+    
+   	cout<<"Enter Expression: ";
+   	cin>>exp;
+    
+    cout<<"After Evaluation: ";
+   	sk1.evaluate(exp);
+     
+	return 0;
+	
+}
+
