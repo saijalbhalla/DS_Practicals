@@ -126,11 +126,11 @@ int main()
 {
 	Stack<int> sk1;
     string exp;
-    
+    	cout<<"\nProgram to implement Postfix Evaluation\n";
    	cout<<"Enter Expression: ";
    	cin>>exp;
     
-    cout<<"After Evaluation: ";
+    	cout<<"After Evaluation: ";
    	sk1.evaluate(exp);
      
 	return 0;
