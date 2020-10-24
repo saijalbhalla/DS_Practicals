@@ -141,10 +141,10 @@ class SortedList
 		do
 		{
 			cout<<"\n****MENU****\n";
-			cout<<"Press 1. For Inserting an element\n";
-			cout<<"Press 2. For Display\n";
-			cout<<"Press 3. For Exit\n";
-			cout<<"Enter Option: ";
+			<<"Press 1. For Inserting an element\n";
+			<<"Press 2. For Display\n";
+			<<"Press 3. For Exit\n";
+			<<"Enter Option: ";
 			cin>>option;
 		
 			switch(option)
@@ -152,6 +152,7 @@ class SortedList
 				case 1: cout<<"Enter Element: ";
 						cin>>element;
 						insert(element);
+						traverse();
 						break;
 				
 				case 2: cout<<"\nList is: ";
@@ -167,12 +168,7 @@ class SortedList
 			}
 			
 		}while(option!=3);	
-	}
-	
-	void merge_list()
-	{
-		
-	}
+	}	
 	
 };
 
