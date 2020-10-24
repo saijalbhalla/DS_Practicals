@@ -346,11 +346,13 @@ class DLLList
 			case 1: cout<<"Enter an Element: ";
 					cin>>element;
 					insertatHead(element);
+					traverseforward();
 					break;
 			
 			case 2: cout<<"Enter an Element: ";
 					cin>>element;
 					insertatTail(element);
+					traverseforward();
 					break;
 			
 			case 3: traverseforward();
