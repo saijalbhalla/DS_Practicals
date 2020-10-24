@@ -163,11 +163,13 @@ int main()
 		case 1: cout<<"Enter an Element: ";
 				cin>>element;
 				DL.insertatHead(element);
+				DL.traverseforward();
 				break;
 			
 		case 2: cout<<"Enter an Element: ";
 				cin>>element;
 				DL.insertatTail(element);
+				DL.traverseforward();
 				break;
 			
 		case 3: DL.traverseforward();
